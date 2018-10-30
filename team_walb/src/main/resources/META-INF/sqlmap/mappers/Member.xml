@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+	<resultMap type="Member" id="MemberResult">
+		<result property="mId" column="mId" />
+		<result property="mPw" column="mPw" />
+		<result property="mName" column="mName" />
+		<result property="mBirth" column="mBirth" />
+		<result property="mPhoto" column="mPhoto" />
+		<result property="lNo" column="lNo" />
+		<result property="deptNo" column="deptNo" />
+		<result property="mJoin" column="mJoin" />
+		<result property="mHire" column="mHire" />
+		<result property="mOut" column="mOut" />
+		<result property="mCircle1" column="mCircle1" />
+		<result property="mCircle2" column="mCircle2" />
+		<result property="mCircle3" column="mCircle3" />
+		<result property="startRow" column="startRow" />
+		<result property="endRow" column="endRow" />
+		<result property="schItem" column="schItem" />
+		<result property="schWord" column="schWord" />
+	</resultMap>
+	<select id="getMember" parameterType="Member"
+		resultType="Member"> <!--가져오기 -->
+		SELECT * FROM MEMBER WHERE MID=#{mId}
+	</select>
+	<select id="login" parameterType="Member" resultMap="MemberResult">
+		SELECT * FROM MEMBER WHERE MID=#{mId} AND MPW=#{mPw}
+	</select>
+	<insert id="joinMember" parameterType="Member"><!--가입-->
+		INSERT INTO MEMBER VALUES
+		(#{mId},#{mPw},#{mName},#{mBirth, jdbcType=VARCHAR},#{mPhoto, jdbcType=VARCHAR},2,#{deptNo},
+		SYSDATE,#{mHire, jdbcType=VARCHAR},0, NULL, NULL, NULL)
+		<!-- INSERT INTO MEMBER VALUES('bbb', '1111', '회원b', '2001-01-01', 'noImage.jpg', 2, 30, SYSDATE, '2016-04-06', 0, NULL, NULL, NULL) -->
+	</insert>
+	<select id="idConfirm" parameterType="String"
+		resultType="int"><!--id중복확인  -->
+		SELECT COUNT(*) FROM MEMBER WHERE MID=#{mId}
+	</select>
+	<select id="detail" parameterType="int" resultType="Member">
+	    SELECT * FROM MEMBER WHERE DEPTNO=#{deptNo}
+	</select>
+	<update id="modifyMember" parameterType="Member"><!--수정-->
+		UPDATE MEMBER SET
+			MPW = #{mPw},
+			MNAME = #{mName},
+			MBIRTH = #{mBirth},
+			MPHOTO = #{mPhoto},
+			DEPTNO = #{deptNo},
+			MHIRE = #{mHire}
+		WHERE MID = #{mId}
+	</update>
+	<update id="secession" parameterType="Member"> <!--탈퇴처리-->
+		UPDATE MEMBER SET MOUT=1 WHERE MID=#{mId}
+	</update>
+	<select id="total" parameterType="Member" resultType="int">
+		<if test="schItem=='mId'">
+			SELECT COUNT(*) FROM MEMBER where mId like '%'|| #{schWord, jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="schItem=='mName'">
+			SELECT COUNT(*) FROM MEMBER where mName like '%'|| #{schWord, jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="schItem=='' or schItem==null">
+			SELECT COUNT(*) FROM MEMBER
+		</if>	    
+	</select>
+	<select id="memberList" parameterType="Member"  resultMap="MemberResult"><!--회원리스트-->
+		<if test="schItem=='mId'">
+			select * from 
+			(select rownum rn, a.*
+    			from (select * from Member where mId like '%'||#{schWord, jdbcType=VARCHAR}||'%' ORDER BY mJoin DESC) a)
+    		where rn between ${startRow} and #{endRow}
+		</if>
+		<if test="schItem=='mName'">
+			select * from 
+			(select rownum rn, a.*
+    			from (select * from Member where mName like '%'||#{schWord, jdbcType=VARCHAR}||'%' ORDER BY mJoin DESC) a)
+    		where rn between ${startRow} and #{endRow}
+		</if>
+		<if test="schItem=='' or schItem==null">
+			SELECT * FROM (SELECT ROWNUM RN, A.* FROM(SELECT * FROM Member ORDER BY mJoin DESC) A) 
+				WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</if>		
+	</select>
+	<update id="memberCircleJoin" parameterType="Member">
+		UPDATE MEMBER SET MOUT=0
+		<if test="mCircle1!=0">, MCIRCLE1=#{mCircle1}</if>
+		<if test="mCircle2!=0">, MCIRCLE2=#{mCircle2}</if>
+		<if test="mCircle3!=0">, MCIRCLE3=#{mCircle3}</if>
+		 WHERE MID=#{mId}
+	</update>
+	<update id="memberCircleOut" parameterType="Member">
+		UPDATE MEMBER SET MOUT=0
+		<if test="mCircle1==0">, MCIRCLE1=NULL</if>
+		<if test="mCircle2==0">, MCIRCLE2=NULL</if>
+		<if test="mCircle3==0">, MCIRCLE3=NULL</if>
+		 WHERE MID=#{mId}
+	</update>
+	<select id="circleMemberList" parameterType="int" resultMap="MemberResult">
+		SELECT * FROM MEMBER WHERE (MCIRCLE1=#{cNum} OR MCIRCLE2=#{cNum} OR MCIRCLE3=#{cNum}) AND MID!=(SELECT MID FROM CIRCLE WHERE CNUM=#{cNum})
+	</select>
+ </mapper>

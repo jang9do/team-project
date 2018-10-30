@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDept">
+	<resultMap type="MemberDept" id="MemberDeptResult">
+		<result property="mId" column="mId" />
+		<result property="mPw" column="mPw" />
+		<result property="mName" column="mName" />
+		<result property="mBirth" column="mBirth" />
+		<result property="mPhoto" column="mPhoto" />
+		<result property="mJoin" column="mJoin" />
+		<result property="mHire" column="mHire" />
+		<result property="mOut" column="mOut" />
+		<result property="lNo" column="lNo" />
+		<result property="mCircle1" column="mCircle1" />
+		<result property="mCircle2" column="mCircle2" />
+		<result property="mCircle3" column="mCircle3" />
+		
+		<result property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="dloc" column="dloc" />
+		
+		
+	</resultMap>
+	<select id="memberDeptlist" parameterType="MemberDept"
+		resultMap="MemberDeptResult">
+		SELECT * FROM(SELECT ROWNUM RN, A.*
+		FROM (SELECT m.*,dName,dLoc from MEMBER m, DEPT D WHERE M.DEPTNO=D.DEPTNO
+		ORDER BY MHIRE DESC) A)
+		WHERE RN BETWEEN 6 AND 10;
+	</select>
+</mapper>

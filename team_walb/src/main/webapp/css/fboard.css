@@ -1,0 +1,141 @@
+a{transition: color 0.3s ease;}
+a:hover{color: #ff548a;}
+/* 페이지 타이틀 */
+section #bbstitle{
+    overflow: hidden;
+}
+/* 타이틀 제목 */
+section #bbstitle h1{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+/* 타이틀 아래 선 */
+section #bbstitle #lineImgf{
+    width: 60px; height:2px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+/* 버튼? */
+section #bbstitle p{float: right;}
+/* section #bbstitle p a{transition: color 0.3s ease;} */
+/* 게시판 wrap */
+#wrap #content section #bbswrap{
+    width: 1200px; line-height: 40px; margin-top: 5px;
+    box-sizing: border-box;
+}
+/* 게시판 번호 타이틀*/
+#wrap #content section #bbswrap #bbsnum{
+    float: left; width: 100px;
+    background-color: #606060; text-align: center;
+    color: #ffffff;
+}
+/* 게시판 제목 타이틀 */
+#wrap #content section #bbswrap #bbstitle{
+    float: left; width: 650px;
+    background-color: #606060; text-align: center;
+    color: #ffffff;
+}
+/* 게시판 작성자 타이틀 */
+#wrap #content section #bbswrap #bbsmid{
+    float: left; width: 200px;
+    background-color: #606060; text-align: center;
+    color: #ffffff;
+}
+/* 게시판 날짜 타이틀 */
+#wrap #content section #bbswrap #bbsdate{
+    float: left; width: 250px;
+    background-color: #606060; text-align: center;
+    color: #ffffff;
+}
+#wrap #content section #bbswrap #bbszero{
+	width: 1200px; display: inline-block;
+	text-align: center;
+	margin-top: 100px;
+}
+/* 게시판 제목 */
+#wrap #content section #bbswrap .bbsnum{
+    float: left; width: 100px;
+    text-align: center;
+    border-bottom: 1px solid #c5c5c5;
+    box-sizing: border-box;
+}
+/* 게시판 제목 */
+#wrap #content section #bbswrap #reple{
+    width: 30px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+    color: #ffffff;
+    background-color: #606060;
+
+}
+#wrap #content section #bbswrap .bbstitle{
+    float: left; width: 650px; padding-left: 10px;
+    text-align: justify;
+    border-bottom: 1px solid #c5c5c5;
+    box-sizing: border-box;
+}
+#wrap #content section #bbswrap .bbsmid{
+    float: left; width: 200px;
+    text-align: center;
+    border-bottom: 1px solid #c5c5c5;
+    box-sizing: border-box;
+}
+#wrap #content section #bbswrap .bbsdate{
+    float: left; width: 250px;
+    text-align: center;
+    border-bottom: 1px solid #c5c5c5;
+    box-sizing: border-box;
+}
+
+/* ************** 페이징 ************** */
+#wrap #content section #paging{
+    width: 1200px; text-align: center;
+    margin-top: 30px; display: inline-block;
+}
+#wrap #content section #paging{
+	text-align: center;
+	height: 100px; 
+	/* line-height:100px; */
+}
+#wrap #content section #paging #pagingWrap{
+	margin: 0 auto;
+}
+#wrap #content section #paging a,
+#wrap #content section #paging b{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid white;
+}
+#wrap #content section #paging a:hover,
+#wrap #content section #paging b:hover{
+	border: 2px solid #ff00b6;
+	font-weight: bold;
+}
+
+/* ************** 글쓰기 폼 ************** */
+#wrap #content section #writewrap{
+    width: 1200px; line-height: 40px; margin-top: 5px;
+    box-sizing: border-box;
+}
+#wrap #content section #writewrap #writeform #title, .title{
+    font-size: 1.4em;
+    color: #323233;
+}
+#wrap #content section #writewrap #writeform #ftitle{
+    border-bottom: 1px solid #c5c5c5;
+    width: 500px;
+}
+#wrap #content section #bbstitle .buttons{
+	background-color: #ffffffff;
+}
+#wrap #content section #bbstitle .buttons:hover {
+	color: #ff548a;
+}
+#wrap #content section #writewrap #writeform #titlebottom{
+	text-align: right;
+}

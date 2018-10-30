@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="BboardCircle">
+    	<resultMap type="BboardCircle" id="BCresult">
+    		<result column="bNum" property="bNum"/>
+    		<result column="cNum" property="cNum"/>
+    		<result column="bTitle" property="bTitle"/>
+    		<result column="bContent" property="bContent"/>
+    		<result column="bStart" property="bStart"/>
+    		<result column="bEnd" property="bEnd"/>
+    		<result column="bCount" property="bCount"/>
+    		<result column="bPeople" property="bPeople"/>
+    		<result column="bActi" property="bActi"/>
+
+    		<result column="hour" property="hour"/>
+    		
+    		<result column="cPhoto" property="cPhoto"/>
+    		<result column="cName" property="cName"/>
+    		<result column="mId" property="mId"/>
+    		<result column="cContent" property="cContent"/>
+    		<result column="cTime" property="cTime"/>
+    		<result column="cHit" property="cHit"/>
+    		
+    		<result column="startRow" property="startRow"/>
+    		<result column="endRow" property="endRow"/>
+    	</resultMap>
+    	
+    	<select id="viewBboard" parameterType="int" resultMap="BCresult">
+			SELECT CPHOTO, CNAME, MID, BNUM, B.CNUM, BTITLE, BCONTENT, BCOUNT, BPEOPLE, BSTART, TO_CHAR(BEND, 'yyyy.mm.dd hh24') BEND, BACTI FROM BBOARD B, CIRCLE C WHERE C.CNUM=B.CNUM AND BNUM=#{bNum}
+		</select>
+    	
+    	<select id="bungae3" resultMap="BCresult"><!-- resultType="Bboard" -->
+			SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT CPHOTO, CNAME, TRUNC((BEND-SYSDATE)*24) HOUR, BNUM, B.CNUM, BTITLE, BCONTENT, BCOUNT, BPEOPLE, BSTART, TO_CHAR(BEND, 'yyyy.mm.dd hh24') BEND FROM BBOARD B, CIRCLE C WHERE B.CNUM=C.CNUM AND BEND>SYSDATE ORDER BY BSTART DESC) A ) WHERE RN BETWEEN 1 AND 3
+			<!-- SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT CPHOTO, CNAME, BNUM, B.CNUM, BTITLE, BCONTENT, BCOUNT, BPEOPLE, BACTI, BSTART, BEND FROM BBOARD B, CIRCLE C WHERE B.CNUM=C.CNUM AND BEND>SYSDATE AND BACTI=0 ORDER BY BSTART DESC) A ) WHERE RN BETWEEN 1 AND 3 -->
+		</select>
+		<!-- 전체: 마감 순 -->
+		<select id="bboardListAll" parameterType="BboardCircle" resultMap="BCresult">
+			SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT CPHOTO, CNAME, TRUNC((BEND-SYSDATE)*24) HOUR, MID, BNUM, B.CNUM, BTITLE, BCONTENT, BCOUNT, BPEOPLE, BSTART, TO_CHAR(BEND, 'yyyy.mm.dd hh24') BEND, BACTI FROM BBOARD B, CIRCLE C 
+			WHERE B.CNUM=C.CNUM ORDER BY BEND DESC, BSTART DESC) A ) WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</select>
+		<!-- 진행중 : 인기순(참여자) -->
+		<select id="bboardListPopular" parameterType="BboardCircle" resultMap="BCresult">
+			SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT CPHOTO, CNAME, TRUNC((BEND-SYSDATE)*24) HOUR, MID, BNUM, B.CNUM, BTITLE, BCONTENT, BCOUNT, BPEOPLE, BSTART, TO_CHAR(BEND, 'yyyy.mm.dd hh24') BEND, BACTI FROM BBOARD B, CIRCLE C 
+			WHERE B.CNUM=C.CNUM AND BEND>SYSDATE ORDER BY BCOUNT DESC, BEND DESC) A ) WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</select>
+		<!-- 진행중 : 마감일 최근 -->
+		<select id="bboardListIng" parameterType="BboardCircle" resultMap="BCresult">
+			SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT CPHOTO, CNAME, TRUNC((BEND-SYSDATE)*24) HOUR, 
+			BNUM, B.CNUM, BTITLE, BCONTENT, BCOUNT, BPEOPLE, BSTART, TO_CHAR(BEND, 'yyyy.mm.dd hh24') BEND, BACTI 
+			FROM BBOARD B, CIRCLE C WHERE B.CNUM=C.CNUM AND BEND>SYSDATE ORDER BY BEND DESC) A ) 
+			WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</select>
+    </mapper>

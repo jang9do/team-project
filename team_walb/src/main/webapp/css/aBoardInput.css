@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#content table{
+		margin: 50px auto;
+	}
+	#content table tr td{
+		height: 35px;
+		vertical-align: middle;
+		border: 2px solid gray;
+	}
+	#content table tr th{
+		background-color: #1F8389;
+		height: 35px;
+		vertical-align: middle;
+		border: 2px solid gray;
+		color: white;
+		font-weight: bold;
+	}
+	#content #tWidth td, #content #tWidth th{
+		width: 150px;
+	}
+	#content table input[type=text],#content table input[type=date]{
+		width: 100%;
+		height: 100%;
+	}
+	#content table #ckedi{
+		width: 100%;
+	}
+	#content table tr:last-child td {
+		text-align: center;
+	}
+	#content table tr:last-child td input{
+		line-height: 30px;
+		vertical-align: middle;
+		width: 120px;
+		background-color: #A8FFF1;
+	}

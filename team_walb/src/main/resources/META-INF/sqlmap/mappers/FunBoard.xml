@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FunBoard">
+	<resultMap type="FunBoard" id="FunBoardResult">
+		<result column="funNum" property="funNum"/>
+		<result column="funTitle" property="funTitle"/>
+		<result column="funCon" property="funCon"/>
+		<result column="funStart" property="funStart"/>
+		<result column="funEnd" property="funEnd"/>
+		<result column="funIp" property="funIp"/>
+		<result column="funGold" property="funGold"/>
+		<result column="funGoal" property="funGoal"/>
+		<result column="cNum" property="cNum"/>
+		<result column="cName" property="cName"/>
+		<result column="cPhoto" property="cPhoto"/>
+		<result column="mId" property="mId"/>
+		<result column="startRow" property="startRow"/>
+		<result column="endRow" property="endRow"/>
+	</resultMap>
+	<!-- 펀딩게시판 리스트 목록 글보기 -->
+	<select id="FunBoardList" parameterType="FunBoard" resultMap="FunBoardResult">
+    	SELECT * FROM (SELECT ROWNUM RN, A.* FROM 
+    		(SELECT F.*, MID, CPHOTO, CNAME FROM FUNDING F, CIRCLE C WHERE C.CNUM=F.CNUM ORDER BY FUNNUM DESC) A)
+    		WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+ 	<!-- 펀딩게시판 전체 글갯수 -->
+ 	<select id="FunBoardTotal" resultType="int">
+		SELECT COUNT(*) FROM FUNDING
+	</select>
+ 	<!-- 펀딩게시판 글 상세내용 보기 -->
+ 	<select id="FunBoardDetail" parameterType="int" resultType="FunBoard">
+		select F.*, MID, CPHOTO, CNAME from funding F, CIRCLE C WHERE C.CNUM=F.CNUM and funnum=#{funNum}
+	</select>
+	<!-- 펀딩게시판 펀딩하기서비스 -->
+	<update id="Funding" parameterType="FunBoard">
+	<![CDATA[
+		UPDATE FUNDING SET FUNGOLD=FUNGOLD+#{funGold} WHERE FUNNUM=#{funNum} AND (FUNGOLD<FUNGOAL and FUNEND>sysdate)
+	 ]]>
+	</update>
+	<!-- 펀딩게시판 펀딩 마감처리 -->
+	<delete id="FunBoardResult">
+	<![CDATA[
+		DELETE FROM FUNDING WHERE FUNGOLD>=FUNGOAL or FUNEND<sysdate
+	 ]]>
+	</delete>
+	<!-- 펀딩게시판 글 등록 -->
+	<insert id="FunBoardInsert" parameterType="FunBoard">
+		INSERT INTO FUNDING 
+   			VALUES(FUNDING_SEQ.NEXTVAL, #{funTitle}, #{cNum}, #{funCon}, 
+    		SYSDATE, #{funEnd}, #{funIp}, 0, #{funGoal})
+	</insert>
+	<!-- 펀딩게시판 게시글 삭제 -->
+	<delete id="FunBoardDelete" parameterType="int">
+		DELETE FROM FUNDING WHERE FUNNUM=#{funNum}
+	</delete>
+	<update id="FunBoardModify" parameterType="FunBoard">
+		UPDATE FUNDING SET FUNTITLE=#{funTitle}, FUNCON=#{funCon}, FUNEND=#{funEnd}, FUNGOAL=#{funGoal} WHERE FUNNUM=#{funNum}
+	</update>
+</mapper>

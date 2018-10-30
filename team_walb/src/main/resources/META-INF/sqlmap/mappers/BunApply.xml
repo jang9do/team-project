@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="BunApply">
+	<resultMap type="BunApply" id="BunResult">
+		<result column="bunNum" property="bunNum"/>
+		<result column="bNum" property="bNum"/>
+		<result column="mId" property="mId"/>
+	</resultMap>
+	<insert id="addBunapply" parameterType="BunApply">
+		INSERT INTO BUNAPPLY VALUES (BUNAPPLY_SEQ.NEXTVAL, #{bNum}, #{mId})
+	</insert>
+	<!-- 번개 참여 중복 확인 -->
+	<select id="bunapplyChk" parameterType="BunApply" resultType="int">
+		SELECT COUNT(*) FROM BUNAPPLY WHERE MID=#{mId, jdbcType=VARCHAR} AND BNUM=#{bNum}
+	</select>
+	<!-- 번개 참여 취소 -->
+	<delete id="cancleBunapply" parameterType="BunApply">
+		DELETE FROM BUNAPPLY WHERE BNUM=#{bNum} AND MID=#{mId}
+	</delete>
+
+</mapper>

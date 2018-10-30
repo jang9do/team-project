@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Gboard">
+	<resultMap type="Gboard" id="Gresult">
+	    <result column="gNum" property="gNum"/>
+    	<result column="mId" property="mId"/>
+		<result column="gTitle" property="gTitle"/>
+		<result column="gContent" property="gContent"/>
+		<result column="gIp" property="gIp"/>
+		<result column="gDate" property="gDate"/>
+		<result column="gFile" property="gFile"/>
+		
+		<result column="startRow" property="startRow"/>
+		<result column="endRow" property="endRow"/>
+	</resultMap>
+	<select id="gBoardList" parameterType="Gboard" resultMap="Gresult">
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM GBOARD ORDER BY GNUM DESC) A ) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="gBoardTotCnt" resultType="int">
+		SELECT COUNT(*) FROM GBOARD
+	</select>
+	<select id="gBoardView" parameterType="int" resultType="Gboard">
+		SELECT * FROM GBOARD WHERE GNUM=#{gNum}
+	</select>
+	<insert id="gBoardInsert" parameterType="Gboard">
+		INSERT INTO GBOARD VALUES(GBOARD_SEQ.NEXTVAL, #{mId}, #{gTitle}, #{gContent}, #{gIp}, SYSDATE, #{gFile})
+	</insert>
+	<delete id="gBoardDelete" parameterType="int">
+		DELETE FROM GBOARD WHERE GNUM=#{gNum}
+	</delete>
+	<update id="gBoardModify" parameterType="gBoard">
+		UPDATE GBOARD SET GTITLE=#{gTitle}, GCONTENT=#{gContent}, GFILE=#{gFile} WHERE GNUM=#{gNum}
+	</update>
+</mapper>
+
+

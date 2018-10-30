@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Member" type="com.tj.walb.model.Member"/>
+		<typeAlias alias="MemberDept" type="com.tj.walb.model.MemberDept"/>
+		<typeAlias alias="Dept" type="com.tj.walb.model.Dept"/>
+		<typeAlias alias="Circle" type="com.tj.walb.model.Circle"/>
+		<typeAlias alias="CircleMember" type="com.tj.walb.model.CircleMember"/>
+		<typeAlias alias="BboardCircle" type="com.tj.walb.model.BboardCircle"/>
+		<typeAlias alias="Place" type="com.tj.walb.model.Place"/>
+		<typeAlias alias="Activity" type="com.tj.walb.model.Activity"/>
+		<typeAlias alias="ActiResult" type="com.tj.walb.model.ActiResult"/>
+		<typeAlias alias="ABoard" type="com.tj.walb.model.ABoard"/>
+		<typeAlias alias="AReply" type="com.tj.walb.model.AReply"/>
+		<typeAlias alias="Bboard" type="com.tj.walb.model.Bboard"/>
+		<typeAlias alias="BboardBunApply" type="com.tj.walb.model.BboardBunApply"/>
+		<typeAlias alias="BboardCircle" type="com.tj.walb.model.BboardCircle"/>
+		<typeAlias alias="BunApply" type="com.tj.walb.model.BunApply"/>
+		<typeAlias alias="Gboard" type="com.tj.walb.model.Gboard"/>
+		<typeAlias alias="Message" type="com.tj.walb.model.Message"/>
+		<typeAlias alias="Fboard" type="com.tj.walb.model.Fboard"/>
+		<typeAlias alias="FunBoard" type="com.tj.walb.model.FunBoard"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="META-INF/sqlmap/mappers/Member.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/MemberDept.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Dept.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Place.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Circle.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/CircleMember.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Activity.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/ActiResult.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/ABoard.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/AReply.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Bboard.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/BboardBunApply.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/BboardCircle.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/BunApply.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Gboard.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Message.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Fboard.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/FunBoard.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/BboardCircle.xml"/>
+	</mappers>
+</configuration>

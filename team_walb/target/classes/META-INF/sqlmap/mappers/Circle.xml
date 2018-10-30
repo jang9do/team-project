@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Circle">
+	<resultMap type="Circle" id="CircleResult">
+		<result property="cNum" column="cNum"/>
+		<result property="cName" column="cName"/>
+		<result property="mId" column="mId"/>
+		<result property="cContent" column="cContent"/>
+		<result property="cTime" column="cTime"/>
+		<result property="cHit" column="cHit"/>
+		<result property="cPhoto" column="cPhoto"/>
+		<result property="startRow" column="startRow"/>
+		<result property="endRow" column="endRow"/>
+	</resultMap>
+	<select id="CircleList" parameterType="Circle" resultMap="CircleResult">
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM CIRCLE ORDER BY CNUM DESC) A) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="CircleTop3" resultMap="CircleResult">
+		SELECT * FROM (SELECT ROWNUM RN, CIRCLE.* FROM CIRCLE ORDER BY CHIT DESC) WHERE RN BETWEEN 1 AND 3
+	</select>
+	<select id="CircleTop" resultType="Circle">
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM CIRCLE ORDER BY CHIT DESC) A) WHERE RN=1
+	</select>
+	<select id="CircleView" parameterType="int" resultType="Circle">
+		SELECT * FROM CIRCLE WHERE CNUM=#{cNum}
+	</select>
+	<update id="CircleHit" parameterType="int">
+		UPDATE CIRCLE SET CHIT = CHIT+1 WHERE CNUM=#{cNum}
+	</update>
+	<select id="CircletotCnt" resultType="int">
+		SELECT COUNT(*) FROM CIRCLE
+	</select>
+	<select id="CircleSearch" parameterType="Circle" resultMap="CircleResult">
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM CIRCLE WHERE 1=1 
+		<if test="cName != null">
+			AND CNAME LIKE '%'||#{cName}||'%' 
+		</if>
+		<if test="cContent != null">
+			AND CCONTENT LIKE '%'||#{cContent}||'%' 
+		</if>
+		<if test="cTime != null">
+			AND CTIME LIKE '%'||#{cTime}||'%' 
+		</if>
+		ORDER BY CNUM DESC) A) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="CircleSearchtotCnt" parameterType="Circle" resultType="int">
+		SELECT COUNT(*) FROM CIRCLE WHERE 1=1 
+		<if test="cName != null">
+			AND CNAME LIKE '%'||#{cName}||'%' 
+		</if>
+		<if test="cContent != null">
+			AND CCONTENT LIKE '%'||#{cContent}||'%'
+		</if>
+		<if test="cTime != null">
+			AND CTIME LIKE '%'||#{cTime}||'%' 
+		</if>
+	</select>
+	<insert id="CircleInsert" parameterType="Circle">
+		INSERT INTO CIRCLE VALUES(CIRCLE_SEQ.NEXTVAL, #{cName}, #{mId}, #{cContent}, #{cTime}, 0, 'noImage.jpg')
+	</insert>
+	<select id="CircleLastNum" resultType="int">
+		SELECT MAX(CNUM) FROM CIRCLE
+	</select>
+	<update id="CircleUpdate" parameterType="Circle">
+		UPDATE CIRCLE SET CCONTENT=#{cContent}, CTIME=#{cTime}, CPHOTO=#{cPhoto} WHERE CNUM=#{cNum}
+	</update>
+	<delete id="CircleDelete" parameterType="int">
+		DELETE FROM CIRCLE WHERE CNUM=#{cNum}
+	</delete>
+</mapper>

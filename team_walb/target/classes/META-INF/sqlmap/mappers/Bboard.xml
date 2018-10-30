@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="Bboard">
+	<resultMap type="Bboard" id="Bresult">
+		<result column="bNum" property="bNum"/>
+		<result column="cNum" property="cNum"/>
+		<result column="bTitle" property="bTitle"/>
+		<result column="bContent" property="bContent"/>
+		<result column="bStart" property="bStart"/>
+		<result column="bEnd" property="bEnd"/>
+		<result column="bCount" property="bCount"/>
+		<result column="bPeople" property="bPeople"/>
+		<result column="bActi" property="bActi"/>
+		
+		<result column="startRow" property="startRow"/>
+		<result column="endRow" property="endRow"/>
+	</resultMap>
+	<insert id="insertBboard" parameterType="Bboard">
+		INSERT INTO BBOARD VALUES(BBOARD_SEQ.NEXTVAL, #{cNum}, #{bTitle}, #{bContent},
+		SYSDATE, TO_DATE(#{bEnd}, 'yyyy-mm-dd hh24:mi'), 1, #{bPeople}, 0)
+	</insert>
+
+	<update id="modifyBboard">
+		UPDATE BBOARD SET BTITLE=#{bTitle}, BCONTENT=#{bContent}, 
+		BEND=TO_DATE(#{bEnd}, 'yyyy-mm-dd hh24:mi'), BPEOPLE=#{bPeople} 
+		WHERE BNUM=#{bNum}
+	</update>
+	<update id="participateBboard">
+		UPDATE BBOARD SET BCOUNT=BCOUNT+1 WHERE BNUM=#{bNum}
+	</update>
+	<update id="minusBboard" parameterType="int">
+		UPDATE BBOARD SET BCOUNT=BCOUNT-1 WHERE BNUM=#{bNum}
+	</update>
+	
+	<!-- 번개 마감 후 비활성화 -->
+	<update id="disActi">
+		<![CDATA[
+		UPDATE BBOARD SET BACTI=1 WHERE BEND<SYSDATE
+		]]>
+	</update>
+	
+	<!-- 페이징 위한 전체글수 -->
+	<select id="totCntBboardAll" resultType="int">
+		SELECT COUNT(*) FROM BBOARD
+	</select>
+	<select id="totCntBboardIng" resultType="int">
+		SELECT COUNT(*) FROM BBOARD WHERE BEND>SYSDATE
+	</select>
+	
+	<select id="getBnumAfterInsert" parameterType="int" resultType="int">
+		SELECT BNUM FROM (SELECT ROWNUM RN, A.* 
+		FROM (SELECT BNUM FROM BBOARD WHERE CNUM=#{cNum} 
+		ORDER BY BSTART DESC) A) WHERE RN=1
+	</select>
+</mapper>
+    
+    
+    
+    

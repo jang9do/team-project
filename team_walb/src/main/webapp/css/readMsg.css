@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/*--------전체--------- */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+/* content */
+#wrap #content{
+	margin: 0 auto;
+}
+
+#wrap #content .first-line{
+	overflow:hidden;
+	height: 30px;
+	background-color: #a8fff1;
+	padding: 10px;
+	position: relative;
+}
+
+#wrap #content .first-line>img{
+	float:left;
+	padding: 5px;
+	height: 42px;
+	position: absolute;
+	top: 0;
+	
+}
+
+#wrap #content .first-line>span{
+	float:right;
+	padding: 5px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#wrap #content .mes_area p{
+	padding: 5px 30px;
+	height: 15px;
+	
+}
+
+#wrap #content .mes_area #mesTitle{/* 제목 */
+	font-size: 16px;
+	font-weight: bold;
+	color: #757575;
+	text-align: center;
+	margin: 5px 0;
+	/* border: 1px solid red; */
+}
+
+#wrap #content .mes_area #mesFrom{/* 보낸사람 */
+	font-size: 13px;
+	color: #323233;
+	/* border: 1px solid orange; */
+}
+
+#wrap #content .mes_area #sendTime{/* 발송시간 */
+	font-size: 12px;
+	color: #323233;
+	/* border: 1px solid yellow; */
+}
+
+#wrap #content .mes_area #mesCon{/* 내용 */
+	height: 100px;
+	font-size: 13px;
+	color: #323233;
+	margin: 15px 20px 10px;
+	padding: 5px 10px;
+	border: 1px solid #c5c5c5;
+}
+
+#wrap #content .mes_area .btn_area{
+	width: 300px;
+	margin:20px auto; 
+	text-align: center;
+}
+
+#wrap #content .mes_area .btn_area .button{
+    width: 40px;
+    height: 20px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #a8fff1;
+    color: #424242;
+    border-radius: 2px;
+    box-shadow: 0 3px 3px #b7b7b7;
+    border: none;
+}
+
+#wrap #content .mes_area .btn_area button:hover{
+	background-color: #ff548a;
+	color:white;
+	cursor: pointer;
+}

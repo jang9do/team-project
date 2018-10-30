@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/*--------전체--------- */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+/*------ content -------*/
+#wrap #content{
+	position:relative;
+	min-height: 1000px;
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#wrap #content .msg_divide{
+	float:left;
+}
+
+/*------left_side-------*/
+#wrap #content .msg_divide #menu_back{
+	position: absolute;
+	z-index:500;
+	width: 200px;
+	height: 670px;
+	background-color: #c5c5c5;
+}
+
+#wrap #content .title h1{
+	font-weight: bold;
+	font-size: 20pt;
+	color: #323233;
+	margin:0;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#wrap #content .title #lineImg{
+	width: 75px;
+	height:2px;
+	margin: 0 0 25px 10px;
+}
+
+#wrap #content .msg_leftsidemenu ul{
+	margin: 0;
+	float: left;
+	width: 200px;
+}
+
+#wrap #content .msg_leftsidemenu ul li{
+	font-size: 1em;
+	line-height: 30px;
+	text-align: center;
+	margin: 20px 0;
+}
+
+/*-------right_side-------*/
+/*----------menu---------*/
+.fakeDiv{
+	height: 70px;
+}
+
+#wrap #content .msg_divide .msg_rightside,
+#wrap #content .msg_divide .msglist{
+	margin: 0 0 0 300px;
+}
+
+#wrap #content .msg_rightside{
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#wrap #content .msg_rightside li{
+	float: right;
+	line-height: 20px;
+	height:20px;
+	margin-bottom: 20px;
+}
+
+#wrap #content .hoverColor a:hover{
+	color: #ff00b6;
+	font-weight: bold;
+}
+
+#wrap #content .msg_rightside li a{
+	padding: 20px;
+	font-size: 15px;
+}
+
+#wrap #content .msg_rightside li:nth-child(1){
+	float:left;
+	margin-left: 20px;
+}
+
+#wrap #content .msg_rightside li:nth-child(3){
+	border-left: 1px solid #323233;
+	border-right: 1px solid #323233;
+}
+
+/*--------msgList--------*/
+#wrap #content .msg_divide .msglist{
+	width:900px;
+	height:480px;
+	/* border: 1px solid blue; */
+	overflow:hidden;
+}
+
+/*-------------------- 쪽지 ------------------*/
+#wrap #content .msg_divide .msglist .mes_area{
+	width: 200px;
+	height: 200px;
+	margin: 20px 12px;
+	padding: 7px;
+	border: 1px solid #c5c5c5;
+	float:left;
+	box-sizing: border-box;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_colspan{
+	position:relative;
+	overflow: hidden;
+	height: 30px;
+	margin-bottom: 3px;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_colspan .float{
+	float: left;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_colspan img{
+	height: 20px;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_colspan input[type=checkbox]{
+	float: right;
+	margin: 3px;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_colspan p:nth-child(1){
+	font-size:12px;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_colspan p:nth-child(2){
+	position:absolute;
+	z-index:999;
+	float: right;
+	right:0;
+	bottom:0;
+	margin: 16px 0;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .pink p,
+#wrap #content .msg_divide .msglist .mes_area .pink p a{
+	color: #ff00b6;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .gray p,
+#wrap #content .msg_divide .msglist .mes_area .gray p a{
+	color: #606060;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_detail p:nth-child(1){
+	height:30px;
+	font-weight: bold;
+}
+
+#wrap #content .msg_divide .msglist .mes_area .mes_detail p:nth-child(2){
+	height:110px;
+	font-size: 15px;
+}
+
+/*------------ paging ------------ */
+
+#wrap #content .msg_divide #paging{
+	margin: 10px 0 30px 200px;
+	text-align: center;
+}
+
+#wrap #content #paging a,
+#wrap #content #paging b{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #323233;
+    border: 2px solid white;
+}
+#wrap #content #paging a:hover,
+#wrap #content #paging b:hover{
+	border: 2px solid #ff00b6;
+	font-weight: bold;
+}
+

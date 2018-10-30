@@ -1,0 +1,103 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+a {
+	color: black;
+}
+
+
+#wrap #content {
+	text-align: center;
+	min-height: 680px;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#wrap #content #miniContent h1 {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 18pt;
+	font-weight: bold;
+	color: #696969;
+	height: 25px;
+	letter-spacing: 1px;
+	margin: 30px;
+}
+#wrap #content #fakeDiv{
+  margin-top:50px; 
+}
+
+/*--------------------- table ------------------------*/
+table {
+	/* height: 300px; */
+	width: 1200px; border : 1px solid #c5c5c5;
+	margin: 0 auto;
+	text-align: center;
+	color: #323233;
+	overflow: hidden;
+	border: 1px solid #c5c5c5;
+}
+
+tr {
+	border-bottom: 1px solid black;
+	height: 30px;
+	line-height: 30px;
+}
+
+tr:nth-child(1) {
+	background-color: #a8fff1;
+}
+
+td {
+	color: black;
+}
+
+#asc {
+	text-align: right;
+}
+
+#sc { 
+	margin-top: 10px;
+} 
+
+#sc input[type=submit]{
+	width: 50px;
+	height: 25px;
+} 
+
+#word {
+	border: 1px solid black;
+}
+
+#item {
+	height: 25px;
+}
+
+/*---------------------paging button------------------------*/
+#wrap #content #paging {
+	text-align: center;
+	height: 70px;
+	line-height: 70px;
+	margin-right: 5px;
+}
+
+#wrap #content #paging #pagingWrap {
+	margin: 0 auto;
+}
+
+#wrap #content #paging a, #wrap #content #paging b {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border: 2px solid white;
+	color: black;
+}
+
+#wrap #content #paging a:hover, #wrap #content #paging b:hover {
+	border: 2px solid #ff00b6;
+	font-weight: bold;
+}

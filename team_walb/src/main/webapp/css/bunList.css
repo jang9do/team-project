@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/* ******************************* */
+#wrap #content #miniContent h1{ /* 영문 타이틀 */
+	font-family: 'Noto Sans', sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #696969;
+    height: 25px;
+    letter-spacing: 1px;
+}
+#wrap #content #miniContent h1 #bunSub{
+	font-size: 0.8em;
+	letter-spacing:0;
+}
+#wrap #content #miniContent #lineImg{
+	width: 75px;
+	height:2px;
+}
+#wrap #content #miniContent p span{
+	padding:3px;
+}
+#wrap #content #miniContent p span a:hover{
+	font-weight: bold;
+	color:  #ff00b6;
+}
+/* ************ 리스트 **************** */
+#wrap #content #miniContent #bunList{
+	overflow: hidden;
+}
+#wrap #content #miniContent #bunList .bunDiv{
+	width: 390px; height: 390px;
+	margin: 20px 5px 50px; 
+	float:left;
+	position: relative;
+	cursor: pointer;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivImg{
+    width: 390px; height: 390px;
+    margin: 20px 5px;
+    overflow: hidden;
+    position: absolute;
+    top: -20px;
+    left: -7px;
+    z-index: 1;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivImg .cImg{
+	height: 100%;
+	margin: 0 -20%;
+}
+#wrap #content #miniContent #bunList .bunDiv .blackDiv{
+	width: 390px; height:70px;
+	background-color:  #0000004a;
+	position: absolute;
+	z-index: 2;
+	margin-top:320px;
+	left: -2px;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText{
+	width: 390px; height:390px;
+	padding: 20px;
+	position: absolute;
+	z-index: 3;
+	font-weight: bold;
+	text-shadow: 0 3px 3px black;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText .textUp{
+	width: 350px; height: 100px;
+	overflow: hidden;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText .textUp .textUpTitle{
+	width: 270px;
+	float: left;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText .textUp .textUpHour{
+	width: 80px;
+	float: left;
+	text-align: right;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText .textDown{
+	width:350px; 
+	overflow: hidden;
+	margin-top: 215px;
+	
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText .textDown .textDownLeft{
+	width: 250px;
+	float: left;
+}
+#wrap #content #miniContent #bunList .bunDiv .bunDivText .textDown .textDownRight{
+	widht:100px;
+	float:left;
+	text-align: right;
+}
+
+/* ************** PAGING ************** */
+#wrap #content #paging{
+	text-align: center;
+	height: 100px; 
+	/* line-height:100px; */
+}
+#wrap #content #paging #pagingWrap{
+	margin: 0 auto;
+}
+#wrap #content #paging a,
+#wrap #content #paging b{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid white;
+}
+#wrap #content #paging a:hover,
+#wrap #content #paging b:hover{
+	border: 2px solid #ff00b6;
+	font-weight: bold;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Place">
+	<resultMap type="Place" id="PlaceResult">
+		<result property="pNum" column="pNum"/>
+		<result property="pName" column="pName"/>
+		<result property="pLoc" column="pLoc"/>
+	</resultMap>
+	<select id="placeList" resultMap="PlaceResult">
+		SELECT * FROM PLACE
+	</select>
+	<insert id="placeInsert" parameterType="Place">
+		INSERT INTO PLACE VALUES(PLACE_SEQ.NEXTVAL, #{pName}, #{pLoc}, #{pPhoto})
+	</insert>
+	<delete id="placeDelete" parameterType="int">
+		DELETE FROM PLACE WHERE PNUM=#{pNum}
+	</delete>
+</mapper>

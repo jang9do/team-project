@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ABoard">
+	<resultMap type="ABoard" id="ABoardResult">
+		<result property="aNum" column="aNum"/>
+		<result property="cNum" column="cNum"/>
+		<result property="cName" column="cName"/>
+		<result property="mId" column="mId"/>
+		<result property="aTitle" column="aTitle"/>
+		<result property="aDate" column="aDate"/>
+		<result property="bDate" column="bDate"/>
+		<result property="aContent" column="aContent"/>
+		<result property="aIp" column="aIp"/>
+		<result property="aScore" column="aScore"/>
+		<result property="cPhoto" column="cPhoto" />
+	</resultMap>
+	<select id="ABoardList" parameterType="ABoard" resultMap="ABoardResult">
+		SELECT * FROM (SELECT ROWNUM RN, AC.* FROM (SELECT A.*, CNAME FROM ABOARD A, CIRCLE C WHERE A.CNUM=C.CNUM ORDER BY ANUM DESC) AC) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="ABoardtotCnt" resultType="int">
+		SELECT COUNT(*) FROM ABOARD
+	</select>
+	<select id="ABoardView" parameterType="int" resultType="ABoard">
+		SELECT A.*,CNAME,MID,CPHOTO FROM ABOARD A, CIRCLE C WHERE ANUM=#{aNum} AND A.CNUM=C.CNUM
+	</select>
+	<update id="ScoreChage" parameterType="ABoard">
+		UPDATE ABOARD SET ASCORE=#{aScore} WHERE ANUM=#{aNum}
+	</update>
+	<insert id="ABoardInsert" parameterType="ABoard">
+		INSERT INTO ABOARD VALUES(ABOARD_SEQ.NEXTVAL, #{cNum}, #{aTitle}, SYSDATE, #{bDate}, #{aContent}, #{aIp}, 0)
+	</insert>
+	<delete id="ABoardDelete" parameterType="int">
+		DELETE FROM ABOARD WHERE ANUM=#{aNum}
+	</delete>
+	<update id="ABoardModify" parameterType="ABoard">
+		UPDATE ABOARD SET ATITLE=#{aTitle}, BDATE=#{bDate}, ACONTENT=#{aContent} WHERE ANUM=#{aNum}
+	</update>
+	<select id="ABoardTop3" resultMap="ABoardResult">
+		SELECT * FROM (SELECT ROWNUM RN, AC.* FROM (SELECT A.*, CNAME, CPHOTO FROM ABOARD A, CIRCLE C WHERE A.CNUM=C.CNUM ORDER BY ASCORE DESC) AC) WHERE RN BETWEEN 1 AND 3
+	</select>
+	<insert id="Insert" parameterType="Phone">
+		INSERT INTO PHONE VALUES(#{corp}, #{kine}, #{data}, #{time}, #{osVersion}, #{color}, #{price})
+	</insert>
+</mapper>

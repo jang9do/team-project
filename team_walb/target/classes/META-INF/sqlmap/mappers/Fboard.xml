@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Fboard">
+	<resultMap type="Fboard" id="FboardResult">
+		<result column="fNum" property="fNum"/>
+		<result column="mId" property="mId"/>
+		<result column="mName" property="mName"/>
+		<result column="fTitle" property="fTitle"/>
+		<result column="fContent" property="fContent"/>
+		<result column="fIp" property="fIp"/>
+		<result column="fDate" property="fDate"/>
+		<result column="fGroup" property="fGroup"/>
+		<result column="fStep" property="fStep"/>
+		<result column="fIndent" property="fIndent"/>
+		<result column="cNum" property="cNum"/>
+		<result column="startRow" property="startRow"/>
+		<result column="endRow" property="endRow"/>
+	</resultMap>
+	<select id="fBoardList" parameterType="Fboard" resultMap="FboardResult">
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM 
+    		(SELECT b.*, MNAME FROM FBOARD B, MEMBER M WHERE B.MID=M.MID AND CNUM=#{cNum} ORDER BY fGroup DESC, fStep) A)
+    		WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="fBoardTotal" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM FBOARD where cNum=#{cNum}
+	</select>
+	<select id="fBoardDetail" parameterType="int" resultType="Fboard">
+		SELECT * FROM FBOARD WHERE FNUM=#{fNum}
+	</select>
+	<update id="fBoardAstep" parameterType="Fboard">
+		UPDATE FBOARD SET FSTEP = fStep +1  WHERE fGroup=#{fGroup} and fStep>#{fStep}
+	</update>
+	<insert id="fBoardReply" parameterType="Fboard">
+		INSERT INTO FBOARD VALUES 
+			(FBOARD_SEQ.NEXTVAL, #{mId}, #{fTitle}, #{fContent}, #{fIp}, SYSDATE, #{fGroup}, #{fStep}+1, #{fIndent}+1, #{cNum})
+	</insert>
+	<insert id="fBoardInsert" parameterType="Fboard">
+		INSERT INTO FBOARD VALUES 
+			(FBOARD_SEQ.NEXTVAL, #{mId}, #{fTitle}, #{fContent}, #{fIp}, SYSDATE, FBOARD_SEQ.CURRVAL, #{fStep}, #{fIndent}, #{cNum})
+	</insert>
+	<update id="fBoardUpdate" parameterType="Fboard">
+		UPDATE FBOARD SET FTITLE=#{fTitle}, FCONTENT=#{fContent}, FDATE=SYSDATE
+        	WHERE FNUM=#{fNum}
+	</update>
+	<delete id="fBoardDelete" parameterType="int">
+		DELETE FROM FBOARD WHERE FNUM=#{fNum}
+	</delete>
+</mapper>

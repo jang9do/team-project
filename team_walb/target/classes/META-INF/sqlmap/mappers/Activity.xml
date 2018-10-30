@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Activity">
+	<resultMap type="Activity" id="ActivityResult">
+		<result property="actiNum" column="actiNum"/>
+		<result property="cNum" column="cNum"/>
+		<result property="cName" column="cName"/>
+		<result property="pNum" column="pNum"/>
+		<result property="pName" column="pName"/>
+		<result property="actiTitle" column="actiTitle"/>
+		<result property="actiDate" column="actiDate"/>
+		<result property="actiTime" column="actiTime"/>
+		<result property="actiCon" column="actiCon"/>
+		<result property="actiChk" column="actiChk"/>
+	</resultMap>
+	<select id="AdminActivityList" resultMap="ActivityResult">
+		SELECT A.*, CNAME FROM ACTIVITY A, CIRCLE C WHERE ACTICHK=0 AND A.CNUM=C.CNUM ORDER BY ACTINUM DESC
+	</select>
+	<select id="ActivityList" parameterType="int" resultMap="ActivityResult">
+		SELECT A.*, PNAME FROM ACTIVITY A, PLACE P WHERE ACTIDATE>=SYSDATE AND CNUM=#{cNum} AND A.PNUM=P.PNUM ORDER BY ACTINUM DESC
+	</select>
+	<select id="ActivityTimeList" parameterType="Activity" resultMap="ActivityResult">
+		SELECT A.*, CNAME FROM ACTIVITY A, CIRCLE C WHERE TO_CHAR(ACTIDATE, 'YYYY-MM-DD')=TO_CHAR(#{actiDate}, 'YYYY-MM-DD') AND PNUM=#{pNum} AND A.CNUM=C.CNUM
+	</select>
+	<insert id="ActivityRequest" parameterType="Activity">
+		INSERT INTO ACTIVITY VALUES(ACTIVITY_SEQ.NEXTVAL, #{cNum}, #{pNum}, #{actiTitle}, #{actiDate}, #{actiTime}, #{actiCon}, 0)
+	</insert>
+	<delete id="ActivityDelete" parameterType="int">
+		DELETE FROM ACTIVITY WHERE ACTINUM=#{actiNum}
+	</delete>
+	<update id="ActivityChk" parameterType="int">
+		UPDATE ACTIVITY SET ACTICHK=1 WHERE ACTINUM=#{actiNum}
+	</update>
+	<select id="ActivityView" parameterType="int" resultType="Activity">
+		SELECT * FROM ACTIVITY WHERE ACTINUM=#{actiNum}
+	</select>
+</mapper>

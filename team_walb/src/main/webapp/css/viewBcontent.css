@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+#wrap #content #miniContent{
+	width: 1000px;
+	margin: 0 auto 80px; 
+	padding: 0 30px;
+	overflow:hidden;
+}
+#wrap #content #miniContent h3{
+    font-size: 18pt;
+    font-weight: bold;
+    color: #696969;
+    height: 25px;
+}
+#lineImg{
+	width: 75px;
+	height:2px;
+}
+
+
+/*================== 왼쪽 사진 ====================*/
+#wrap #content #miniContent #divWrap{
+	overflow: hidden;	
+	position: relative;
+}
+#wrap #content #miniContent #divWrap #leftDiv{
+	width: 300px;
+    height: 200px;
+	float:left; 
+	overflow: hidden;	
+	position: relative;
+}
+#wrap #content #miniContent #divWrap #leftDiv #leftImg {
+	width: 300px;
+    height: 200px;
+	position: absolute;
+	z-index: 1;
+}
+#wrap #content #miniContent #divWrap #leftDiv #leftImg img{
+	height:100%;
+	/* margin: 0 -3%; */
+	
+}
+#wrap #content #miniContent #divWrap #leftDiv #cContent{
+	position: absolute;
+	z-index: 2;
+	color:white;
+	font-weight: bold;
+	color: white;
+	padding: 15px;
+	text-shadow: 0 2px 5px black, 2px 3px 5px black;
+}
+
+/*================== 오른쪽 내용 ====================*/
+#wrap #content #miniContent #divWrap #rightDiv{
+	float:left;
+	width: 625px;
+    height: 200px;
+	margin-left: 10px;
+    
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+}
+#wrap #content #miniContent #divWrap #rightDiv table{
+	width: 625px;
+	text-align: left;
+}
+#wrap #content #miniContent #divWrap #rightDiv table tr{
+	border-bottom: 1px solid lightgray;
+	height: 40px;
+    /* line-height: 30px; */
+}
+#wrap #content #miniContent #divWrap #rightDiv table tr th{
+	width: 70px;
+	padding-top: 17px;
+    padding-left: 10px;
+}
+#wrap #content #miniContent #divWrap #rightDiv table tr td{
+	padding-top: 17px;
+	
+}
+#wrap #content #miniContent #divWrap #rightDiv table tr .tdWidth{
+    width: 85px;
+}
+
+
+
+/*================== 오른쪽 내용 중 버튼 ====================*/
+#wrap #content #miniContent #divWrap #rightDiv #btnDiv{
+	width: 625px;
+	text-align: center;
+}
+#btnDiv input[type=button]{
+    margin: 18px 3px;
+    padding: 0 119px;
+    height: 40px;
+    font-weight: bold;
+    background-color: #a8fff1;
+    color: #424242;
+    border-radius: 2px;
+ 
+}
+
+#btnDiv input[type=button]:hover{
+	background-color: #ff548a;
+	color:white;
+	cursor: pointer;
+}
+/* =================== 내용 부분 =================== */
+#wrap #content #miniContent #bUp{
+	margin-top: 4px;
+}
+#wrap #content #miniContent #bUp #bUpTitle{
+	border: 1px solid #606060;
+	height:45px;
+	line-height: 45px;
+	background-color: #efefef;
+    padding-left: 20px;
+}
+#wrap #content #miniContent #bUp #bUpContent{
+	margin-top: 4px; padding: 20px;
+	border: 1px solid #606060;
+	min-height: 300px;
+}

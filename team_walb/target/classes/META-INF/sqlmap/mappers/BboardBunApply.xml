@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BboardBunApply">
+	<resultMap type="BboardBunApply" id="BbBaResult">
+		<result column="bNum" property="bNum"/>
+		<result column="cNum" property="cNum"/>
+		<result column="bTitle" property="bTitle"/>
+		<result column="bContent" property="bContent"/>
+		<result column="bStart" property="bStart"/>
+		<result column="bEnd" property="bEnd"/>
+		<result column="bCount" property="bCount"/>
+		<result column="bPeople" property="bPeople"/>
+		<result column="bActi" property="bActi"/>
+		
+		<result column="cName" property="cName"/>
+		
+		<result column="bunNum" property="bunNum"/>
+		<result column="mId" property="mId"/>
+		
+		<result column="startRow" property="startRow"/>
+		<result column="endRow" property="endRow"/>
+	</resultMap>
+	<select id="myBunListAll" parameterType="BboardBunApply" resultMap="BbBaResult">
+		SELECT * FROM (SELECT ROWNUM RN, A.* 
+		FROM (SELECT CNAME, BA.BUNNUM, BA.MID, BB.BNUM, BB.CNUM, BTITLE, BCONTENT, TO_CHAR(BSTART, 'yyyy-mm-dd hh24') BSTART, TO_CHAR(BEND, 'yyyy-mm-dd hh24') BEND, BCOUNT, BPEOPLE, BACTI 
+		FROM BBOARD BB, BUNAPPLY BA, CIRCLE C 
+		WHERE BA.BNUM=BB.BNUM AND BB.CNUM=C.CNUM AND BA.MID=#{mId, jdbcType=VARCHAR} ORDER BY BUNNUM DESC) A) 
+		WHERE RN BETWEEN #{startRow} AND #{endRow}
+		<!-- SELECT * FROM (SELECT ROWNUM RN, A.* 
+		FROM (SELECT BA.BUNNUM, BA.MID, BB.* FROM BBOARD BB, BUNAPPLY BA 
+		WHERE BA.BNUM=BB.BNUM AND MID=#{mId, jdbcType=VARCHAR} ORDER BY BUNNUM DESC) A) 
+		WHERE RN BETWEEN #{startRow} AND #{endRow} -->
+	</select>
+	<select id="myBunListIng" parameterType="BboardBunApply" resultMap="BbBaResult">
+		SELECT * FROM (SELECT ROWNUM RN, A.* 
+		FROM (SELECT CNAME, BA.BUNNUM, BA.MID, BB.BNUM, BB.CNUM, BTITLE, BCONTENT, TO_CHAR(BSTART, 'yyyy-mm-dd hh24') BSTART, TO_CHAR(BEND, 'yyyy-mm-dd hh24') BEND, BCOUNT, BPEOPLE, BACTI  
+		FROM BBOARD BB, BUNAPPLY BA, CIRCLE C 
+		WHERE BA.BNUM=BB.BNUM AND BB.CNUM=C.CNUM AND BA.MID=#{mId, jdbcType=VARCHAR} AND BEND>SYSDATE ORDER BY BUNNUM DESC) A) 
+		WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="myBunListPast" parameterType="BboardBunApply" resultMap="BbBaResult">
+		<![CDATA[
+		SELECT * FROM (SELECT ROWNUM RN, A.* 
+		FROM (SELECT CNAME, BA.BUNNUM, BA.MID, BB.BNUM, BB.CNUM, BTITLE, BCONTENT, TO_CHAR(BSTART, 'yyyy-mm-dd hh24') BSTART, TO_CHAR(BEND, 'yyyy-mm-dd hh24') BEND, BCOUNT, BPEOPLE, BACTI  
+		FROM BBOARD BB, BUNAPPLY BA, CIRCLE C 
+		WHERE BA.BNUM=BB.BNUM AND BB.CNUM=C.CNUM AND BA.MID=#{mId, jdbcType=VARCHAR} AND BEND<SYSDATE ORDER BY BUNNUM DESC) A) 
+		WHERE RN BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+	
+	<select id="totCntmyBunListAll" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM BUNAPPLY WHERE MID=#{mId, jdbcType=VARCHAR}
+	</select>
+
+</mapper>

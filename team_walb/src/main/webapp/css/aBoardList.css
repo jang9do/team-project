@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+#content p:first-child{
+		width: 800px;
+		font-size: 2em;
+		font-weight: bold;
+		margin: 20px auto;
+	}
+	#content p:nth-child(2){
+		width: 800px;
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: 20px auto;
+	}
+	#content #detail{
+		margin: 0 auto;
+		height: 220px;
+		border: 2px solid gray;
+		width: 800px;
+		padding: 10px;
+	}
+	#content #detail #aimg{
+		height: 200px;
+		width: 400px;
+		float: left;
+	}
+	#content #detail #aimg img{
+		height: 200px;
+	}
+	#content #detail span{
+		float: left;
+		margin-top: 10px;
+		margin-left: 30px;
+		line-height: 40px;
+	}
+	#content #aContent{
+		width: 800px;
+		min-height: 500px;
+		margin: 20px auto;
+		padding: 10px;
+		border: 2px solid gray;
+	}
+	
+	#content #btnp {
+		text-align: center;
+		
+	}
+	#content button {
+		line-height: 40px;
+		width: 100px;
+		background-color: #2FE3EE;
+		font-weight: bold;
+		color: white;
+	}
+	#content form table{
+		margin: 40px auto;
+	}
+	#content form table tr th{
+		background-color: #1F8389;
+		width: 150px;
+		vertical-align: middle;
+		border: 2px solid gray;
+		height: 50px;
+	}
+	#content form table tr td{
+		vertical-align: middle;
+		border: 2px solid gray;
+		text-align: center;
+		width: 150px;
+		height: 50px;
+		border: 2px solid gray;
+	}
+	#content form table tr #aplyForm{
+		padding-left: 0;
+		width: 400px;
+		text-align: left;
+	}
+	#content form table tr #aplyForm textarea {
+		width: 100%;
+		height: 100%;
+		border-top: 1px solid gray;
+	}
+	#content form table #memId {
+		background-color: lightblue;
+		font-weight: bold;
+	}
+	#content form table caption{
+		font-size: 1.5em;
+		font-weight: bold;
+		text-align: left;
+		margin: 10px;
+		margin-left: 30px;
+	}
+	#content form input[type=submit]{
+		line-height: 40px;
+		width: 100px;
+		background-color: #2FE3EE;
+		font-weight: bold;
+		color: white;
+	}
+	#content form tr .apCon {
+	 	text-align: left;
+	 	padding-left: 10px;
+	}
+}

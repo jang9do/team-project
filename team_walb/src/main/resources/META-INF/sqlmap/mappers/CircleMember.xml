@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="CircleMember">
+	<resultMap type="CircleMember" id="CMResult">
+		<result column="mId" property="mId"/>
+		<result column="mPw" property="mPw"/>
+		<result column="mName" property="mName"/>
+		<result column="mBirth" property="mBirth"/>
+		<result column="mPhoto" property="mPhoto"/>
+		<result column="lNo" property="lNo"/>
+		<result column="deptNo" property="deptNo"/>
+		<result column="mJoin" property="mJoin"/>
+		<result column="mHire" property="mHire"/>
+		<result column="mOut" property="mOut"/>
+		<result column="mCircle1" property="mCircle1"/>
+		<result column="mCircle2" property="mCircle2"/>
+		<result column="mCircle3" property="mCircle3"/>
+		
+   		<result column="cPhoto" property="cPhoto"/>
+   		<result column="cName" property="cName"/>
+   		<result column="cNum" property="cNum"/>
+		<result column="cContent" property="cContent"/>
+		<result column="cTime" property="cTime"/>
+		<result column="cHit" property="cHit"/>
+		
+   		<result column="cName1" property="cName1"/>
+		<result column="cName2" property="cName2"/>
+		<result column="cName3" property="cName3"/>
+   		<result column="cNum1" property="cNum1"/>
+		<result column="cNum2" property="cNum2"/>
+		<result column="cNum3" property="cNum3"/>		
+	</resultMap>
+
+	<select id="mIdCircleList" parameterType="String" resultMap="CMResult">
+		SELECT NVL(C1.CNAME, '미가입') CNAME1, M.MCIRCLE1 CNUM1, 
+		       NVL(C2.CNAME, '미가입') CNAME2, M.MCIRCLE2 CNUM2, 
+		       NVL(C3.CNAME, '미가입') CNAME3, M.MCIRCLE3 CNUM3 
+		    FROM MEMBER M, CIRCLE C1, CIRCLE C2, CIRCLE C3 
+		    WHERE M.MCIRCLE1=C1.CNUM(+) AND M.MCIRCLE2=C2.CNUM(+) AND M.MCIRCLE3=C3.CNUM(+) AND M.MID=#{mId}
+	</select>
+
+</mapper>

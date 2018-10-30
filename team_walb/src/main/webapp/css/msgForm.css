@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/*--------전체--------- */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+/* first line */
+#wrap #content{
+	margin: 0 auto;
+}
+
+#wrap #content .first-line{
+	overflow:hidden;
+	height: 50px;
+	background-color: #a8fff1;
+	padding: 10px;
+	position: relative;
+}
+
+#wrap #content .first-line>img{
+	float:left;
+	padding: 5px;
+	height: 52px;
+	position: absolute;
+	top: 0;
+	left: 125px;	
+}
+
+
+/* write Form */
+#wrap #content .writeForm{
+	margin: 20px auto;
+	padding: 5px;
+}
+
+#wrap #content .writeForm span{
+	margin: 10px auto;
+	font-size: 14px;
+	font-weight: bold;
+	color: #323233;
+}
+
+#wrap #content .writeForm .box{
+	width: 250px;
+	height: 20px;
+	border: 1px solid #c5c5c5;
+	display: inline-block;
+    margin: 10px 5px;
+}
+
+#wrap #content .writeForm textarea{
+	width: 250px;
+	height: 100px;
+	border: 1px solid #c5c5c5;
+	margin: 5px 65px;
+}
+
+
+/* Button */
+#wrap #content .btn_area{
+	width: 300px;
+	margin:20px auto; 
+	text-align: center;
+}
+
+#wrap #content .btn_area input[type=button]{
+    width: 40px;
+    height: 20px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #a8fff1;
+    color: #424242;
+    border-radius: 2px;
+    box-shadow: 0 3px 3px #b7b7b7;
+    border:none;
+}
+
+#wrap #content .btn_area input[type=button]:hover{
+	background-color: #ff548a;
+	color:white;
+	cursor: pointer;
+}

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+#content table{
+	margin: 50px auto;
+}
+#content table th{
+	background-color: #1F8389;
+	width: 100px;
+	line-height: 40px;
+	color: white;
+	border: 1px solid pink;
+}
+#content table #title{
+	width: 300px;
+}
+#content table #chk{
+	width: 300px;
+}
+#content table td{
+	height: 40px;
+	background-color: #2FE3EE;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #1F8389;
+}
+#content table td button{
+	height: 30px;
+	width: 90px;
+	border: 10x solid black;
+	background-color: pink;
+	color: black;
+	font-weight: bold;
+}

@@ -1,0 +1,165 @@
+a{transition: color 0.3s ease;}
+a:hover{color: #ff548a;}
+/* 페이지 타이틀 */
+section #searchtitle{
+    overflow: hidden;
+}
+/* 타이틀 제목 */
+section #searchtitle h1{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20pt;
+    /* font-weight: bold; */
+}
+/* 타이틀 아래 선 */
+section #searchtitle #lineImgf{
+    width: 35px; height:2px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+/* section #bbstitle p a{transition: color 0.3s ease;} */
+/* 서치 wrap */
+#wrap #content section #searchwrap{
+    width: 1200px;
+    /* background-color: #aaaaaa; */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#wrap #content section #searchwrap #searchformname{
+    box-sizing: border-box;
+    width: 590px;
+    height: 42px;
+    font-size: 10pt;
+    border: 1px solid #606060;
+    float: left;
+}
+#wrap #content section #searchwrap #searchformname #acname{
+    display: block;
+    width: 70px;
+    font-size: 10pt;
+    line-height: 12px;
+    margin: 10px;
+    text-align: center;
+    float: left;
+}
+#wrap #content section #searchwrap #searchformname .inputbox{
+    width: 490px;
+    font-size: 12pt;
+    line-height: 40px;
+    margin-right: 8px;
+    float: left;
+}
+#wrap #content section #searchwrap #searchformcontent{
+    box-sizing: border-box;
+    width: 590px;
+    height: 42px;
+    font-size: 10pt;
+    border: 1px solid #606060;
+    float: right;
+}
+#wrap #content section #searchwrap #searchformcontent #accontent{
+    display: block;
+    width: 70px;
+    font-size: 10pt;
+    line-height: 12px;
+    margin: 10px;
+    text-align: center;
+    float: left;
+}
+#wrap #content section #searchwrap #searchformcontent .inputbox{
+    width: 490px;
+    font-size: 12pt;
+    line-height: 40px;
+    margin-right: 8px;
+    float: left;
+}
+#wrap #content section #searchwrap #acday{
+    margin-top: 40px;
+    height: 200px;
+    border: 1px solid #606060;
+    margin-bottom: 15px;
+}
+#wrap #content section #searchwrap #acday p{
+    margin: 15px;
+    display: inline-block;
+}
+#wrap #content section #searchwrap #acday .day1, .day2{
+    text-align: center;
+}
+#wrap #content section #searchwrap #acday .day1 .weekend{
+    width: 149px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+#wrap #content section #searchwrap #acday .day2 .weekend{
+    width: 200px;
+    height: 40px;
+}
+#wrap #content section #searchwrap #acday .day1 .weekend:hover, .day2 .weekend:hover{
+    background-color: #ff00b6;
+    color: #a8fff1;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+#wrap #content section #searchwrap .searchbtn{
+    width: 1200px; height: 40px;
+    background-color: #a8fff1; color: #424242;
+}
+#wrap #content section #searchwrap .searchbtn:hover{
+    background-color: #ff00b6; color: #a8fff1;
+    font-weight: bold; transition: 0.5s ease;
+}
+
+/* 페이징 */
+#wrap #content section #paging{
+    width: 1200px; text-align: center;
+    margin-top: 30px; display: inline-block;
+}
+#wrap #content section #paging{
+	text-align: center;
+	height: 100px; 
+	/* line-height:100px; */
+}
+#wrap #content section #paging #pagingWrap{
+	margin: 0 auto;
+}
+#wrap #content section #paging a,
+#wrap #content section #paging b{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid white;
+}
+#wrap #content section #paging a:hover,
+#wrap #content section #paging b:hover{
+	border: 2px solid #ff00b6;
+	font-weight: bold;
+}
+#wrap #content #circles{
+	width: 400px;
+	height: 400px;
+	float: left;
+	box-sizing: border-box;
+	text-align: center;
+	margin-top: 15px;
+	position: relative;
+	/* background-color: #FFFFaa; */
+}
+#wrap #content #circles a img{
+	width: 390px;
+	height: 370px;
+	border: 1px solid gray;
+}
+#wrap #content #circles .cg{
+	width: 390px;
+	height: 78px;
+	line-height: 30px;
+	position: absolute;
+	top: 292px;
+	left: 5px;
+	padding-top: 7px;
+	color: #FFFFFF;
+	background-color: rgba(184, 187, 193, 0.5);
+}

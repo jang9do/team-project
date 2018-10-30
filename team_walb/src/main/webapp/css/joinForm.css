@@ -1,0 +1,66 @@
+@charset "UTF-8";
+h1:nth-child(2) {
+	font-weight: bold;
+	text-align: center;
+}
+
+th {
+	background-color: #eee;
+	font-size: 12px;
+	text-align: left;
+	border-top: 1px solid #ccc;
+	padding: 5px 10px;
+}
+
+td {
+	font-size: 12px;
+	border-top: 1px solid #ccc;
+	padding: 5px 10px;
+	color: #ooooff;
+	padding: 21px;
+}
+#tdSm {
+	font-size: 12px;
+	border-top: 1px solid #ccc;
+	padding: 5px 10px;
+	color: #ooooff;
+	padding: 21px;
+	text-align: center;
+}
+
+table {
+	border-bottom: 1px solid #ccc;
+	width:1200px;
+	margin: 0 auto;
+}
+
+.idconfirm {
+	font-weight: bold;
+}
+
+input {
+	vertical-align: middle;
+	background: #f2f2f2;
+	margin-right: 3px;
+	border: 1px solid #c5c5c5;
+}
+#mPhoto{
+	
+}
+
+select {
+	width: 70px;
+	background: #f2f2f2;
+	border: 1px solid #c5c5c5;
+}
+
+#submit {
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: #f2f2f2;
+	border: 1px solid #c5c5c5;
+	
+}

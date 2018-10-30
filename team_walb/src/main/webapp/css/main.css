@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+#wrap #content{
+	min-height: 680px;
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#wrap #content #fakeDiv{
+	height: 50px;
+	/* border: 1px solid coral; */
+}
+/* ************** mainLeft ************** */
+#wrap #content #mainLeft{
+	width:700px; 
+	float:left;
+	
+	/* border: 1px solid blue; */
+}
+#wrap #content #mainLeft h1{
+	font-size: 18pt; font-weight: bold;
+	margin-top: 10px;
+	height: 28px;
+}
+#wrap #content #mainLeft h1 span{
+	font-family: 'Noto Sans', sans-serif;
+}
+#wrap #content #mainLeft #lineImg{
+	width: 45px; height: 2px;
+	margin-left:2px;
+}
+
+/* ********************* topCircle ************************/
+#wrap #content #mainLeft #topCircle{
+    width: 680px; height: 462px;
+    margin-top:13px;
+	position: relative;
+	overflow:hidden;
+/* 	border: 1px solid red; */
+}
+#wrap #content #mainLeft #topCircle #topCircleImg{
+    width: 680px; height: 462px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1;
+}
+#wrap #content #mainLeft #topCircle #topCircleImg img{
+	width:100%; height:100%;
+	/* margin:0 -10%; */
+}
+#wrap #content #mainLeft #topCircle #topCircleText{
+    width: 680px; height: 462px;
+    color: white;
+    
+	overflow: hidden;
+	position: absolute;
+	z-index: 2;
+}
+#wrap #content #mainLeft #topCircle #topCircleText #tct_up{
+	padding: 14px;
+	/* border: 1px solid yellow; */
+}
+#wrap #content #mainLeft #topCircle #topCircleText #tct_down{
+	padding:10px;
+	margin-top: 356px;	
+
+}
+#wrap #content #mainLeft #topCircle #topCircleText #tct_down p,
+#wrap #content #mainLeft #topCircle #topCircleText #tct_up p{
+	font-size: 12pt;
+	font-weight:bold;
+	text-shadow: 0 2px 5px black, 2px 3px 5px black;
+	/* font-family: 'Noto Sans', sans-serif; */
+}
+#wrap #content #mainLeft #topCircle #topCircleGo{
+    display: block;
+    width: 680px; height: 462px;
+    position: absolute;
+    z-index: 5;
+ 	/* background-color:blue; */  
+}
+
+
+
+/* ************** mainRight ************** */
+#wrap #content #mainRight{
+	width: 500px;
+	float: right;
+}
+#wrap #content #mainRight #tabDiv{
+	/* color: red; */
+}
+
+
+/* ******************** tab 섹션별 ******************** */
+#wrap #content #mainRight #tab1 #noB{
+	text-align: center;
+	margin-top: 150px;
+	color: blue;
+}
+#wrap #content #mainRight #tab1 #lineDiv{
+	/* background-color: red; */
+}
+#wrap #content #mainRight #tab3 .cDiv,
+#wrap #content #mainRight #tab1 .cDiv{
+	overflow: hidden;
+	margin-top: 5px;
+/* 	border: 1px solid purple; */
+}
+#wrap #content #mainRight #tab3 .cDiv:first-child,
+#wrap #content #mainRight #tab1 .cDiv:first-child{
+	margin-top: 3px;
+}	
+#wrap #content #mainRight #tab3 .cDiv .cPhoto,
+#wrap #content #mainRight #tab1 .cDiv .cPhoto{
+	width:200px; height: 150px;
+	overflow: hidden;
+	float:left;
+/* 	border: 1px solid blue; */
+}
+#wrap #content #mainRight #tab3 .cDiv .cPhoto img,
+#wrap #content #mainRight #tab1 .cDiv .cPhoto img{
+	display: block;
+	margin 0 -25%; /* x y로 자를 만큼의 -% 부여 */
+	height: 100%;  /* -부여된 부분만 100% */
+}
+#wrap #content #mainRight #tab3 .cDiv .aContent,
+#wrap #content #mainRight #tab1 .cDiv .aContent{
+	width: 250px;
+	float: right;
+
+	/* border: 1px solid orange; */
+}
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentUp,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentUp{
+	width: 230px; margin-top:3px;
+	white-space: nowrap; /* 자동 줄바꿈을 방지 */
+	overflow: hidden;    /* 반드시 "visible" 이외의 값이 지정되어 있어야 한다. */
+	text-overflow: ellipsis;
+}
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentDown,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentDown{
+	margin-top: 55px;
+	/* border: 1px solid gray; */
+}
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentUp p,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentUp p,
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentDown p,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentDown p{
+	padding: 1px
+}
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentUp .font10,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentUp .font10,
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentDown .font10,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentDown .font10{
+	font-size: 10pt;
+}
+#wrap #content #mainRight #tab3 .cDiv .aContent .aContentUp .fontBold,
+#wrap #content #mainRight #tab1 .cDiv .aContent .aContentUp .fontBold{
+	font-weight: bold;
+}
+
+/* ********** 공지사항 *********** */
+#wrap #content #mainRight #tab2 .notice10{
+	width: 460px;
+    height: 462px;
+    margin: 3px auto 0;
+}
+#wrap #content #mainRight #tab2 .notice10 tr th,
+#wrap #content #mainRight #tab2 .notice10 tr td{
+	line-height: 40px;
+	text-align: center;
+}
+#wrap #content #mainRight #tab2 .notice10 tr th{
+	background-color: #a8fff1;
+	font-weight: bold;
+}
+#wrap #content #mainRight #tab2 .notice10 tr td{
+	border-bottom: 1px solid #cccccc;
+	
+}
+
+#wrap #content #mainRight #tab2 .notice10 tr #nno{
+	width: 50px;
+	text-align: right;
+}
+#wrap #content #mainRight #tab2 .notice10 tr #ntitle{
+	width: 275px;
+}
+#wrap #content #mainRight #tab2 .notice10 tr #ndate{
+	width: 135px;
+}
+#wrap #content #mainRight #tab2 .notice10 tr .nRight{
+	text-align: right;
+	padding-right: 6px;
+}
+
+/* ******************** ******************* */
+.rateScore{
+	font-size: 11pt;
+    display: inline-block;
+    position: relative;
+    top: -4px;
+}

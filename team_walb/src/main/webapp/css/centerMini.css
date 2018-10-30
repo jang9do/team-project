@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+#wrap #content{
+	min-height: 680px;
+	width: 1200px;
+	margin: 0 auto;
+}
+#wrap #content #fakeDiv{
+	height: 50px;
+	/* border: 1px solid coral; */
+}
+.textRight{
+	text-align: right;
+}
+#wrap #content #miniContent{
+	width: 900px;
+	margin: 40px auto 80px; padding: 30px;
+	overflow:hidden;
+	text-align: center;
+	border: 2px solid #c5c5c5;
+	box-shadow: 0 5px 5px #cccccc;
+}
+#wrap #content #miniContentLog{
+	width: 900px;
+	margin: 100px auto 35px; 
+	padding: 30px;
+	overflow:hidden;
+	text-align: center;
+	border: 2px solid #c5c5c5;
+	box-shadow: 0 5px 5px #cccccc;
+}
+
+
+/* *********** 로그인 회원가입 ********** */
+#wrap #content #miniContentLog #lTitle{
+	width: 840px;
+	text-align: left; 
+}
+#wrap #content #miniContentLog #lTitle h1{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #696969;
+    height: 20px;
+    letter-spacing: 1px;
+}
+#wrap #content #miniContentLog #lTitle img{
+	width: 75px;
+	height:2px;
+}
+#wrap #content #miniContentLog #logImgDiv{
+	width: 430px;
+    height: 300px;
+    float: left;
+}
+#wrap #content #miniContentLog #logImgDiv img{
+	width:100%;
+}
+#wrap #content #miniContentLog #logForm{
+	width: 390px; float:right;
+}
+#wrap #content #miniContentLog #logForm h1{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15pt;
+    font-weight: bold;
+    color: #696969;
+    margin: -3px auto 14px;
+    /* background-color: yellow; */
+    padding: 0;
+}
+#wrap #content #miniContentLog #logForm .square{
+	width: 390px;
+	height: 50px;
+	border: 1px solid #c5c5c5;
+	display: block;
+    margin-top: 3px;
+}
+#wrap #content #miniContentLog #logForm #insertId{
+	/* margin-top: 150px; */
+}
+#wrap #content #miniContentLog #logForm #insertId input,
+#wrap #content #miniContentLog #logForm #insertPw input{
+    width: 380px;
+    height: 48px;
+    line-height: 48px;
+}
+#wrap #content #miniContentLog #logForm #noSquare{
+	border: none;
+}
+#wrap #content #miniContentLog #logForm #btns input{
+	border:none;
+}
+#wrap #content #miniContentLog #logForm #btns input[type=submit]{
+	background-color: #ff00b6;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+#wrap #content #miniContentLog #logForm #btns input[type=button]{
+    background-color: #c5c5c5;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#wrap #content #miniContentLog #logForm #btns input[type=submit]:hover,
+#wrap #content #miniContentLog #logForm #btns input[type=button]:hover{
+	background-color: #a8fff1;
+	color: #424242;
+	cursor: pointer;
+	/* box-shadow: 0 3px 3px #cccccc; */
+}
+
+/* ************ 미니 글 상세보기: 번개모임 ************* */
+
+.gap{
+	width:100%; height:20px;
+}
+#wrap #content #miniContent h3{
+	font-weight: bold;
+	font-size: 20pt;
+    letter-spacing: -1px;
+    margin-top: 20px;
+}
+#wrap #content #miniContent #divWrap{
+	overflow: hidden;	
+	position: relative;
+}
+#wrap #content #miniContent #divWrap #leftDiv{
+	width:420px; height: 300px;
+	float:left; 
+	overflow: hidden;	
+	position: relative;
+}
+#wrap #content #miniContent #divWrap #leftDiv #leftImg {
+	width:420px; height: 300px;
+	position: absolute;
+	z-index: 1;
+}
+#wrap #content #miniContent #divWrap #leftDiv #leftImg img{
+	height:100%;
+	margin: 0 -8%;
+	
+}
+#wrap #content #miniContent #divWrap #leftDiv #cContent{
+	position: absolute;
+	z-index: 2;
+	color:white;
+	font-weight: bold;
+	color: white;
+	padding: 15px;
+	text-shadow: 0 2px 5px black, 2px 3px 5px black;
+}
+#wrap #content #miniContent #divWrap #rightDiv{
+	width: 400px;
+    height: 300px;
+    text-align: left;
+    float: right;
+}
+#wrap #content #miniContent #divWrap #rightDiv #bUp{
+	overflow:hidden; 
+	height: 240px;
+}
+#wrap #content #miniContent #rightDiv #bUp #bUp1,
+#wrap #content #miniContent #rightDiv #bUp #bUp2{
+	overflow:hidden; 
+}
+#wrap #content #miniContent #rightDiv #bUp #bUp1 .bUpLeft,
+#wrap #content #miniContent #rightDiv #bUp #bUp2 .bUpLeft{
+	width: 90px; float:left;
+}
+#wrap #content #miniContent #rightDiv #bUp #bUp1 .bUpLeft p,
+#wrap #content #miniContent #rightDiv #bUp #bUp2 .bUpLeft p{
+	font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#wrap #content #miniContent #rightDiv #bUp #bUp1 .bUpRight,
+#wrap #content #miniContent #rightDiv #bUp #bUp2 .bUpRight{
+	width: 310px;
+	float:right;
+	padding: 1px;
+}
+#wrap #content #miniContent #rightDiv #bUp #bUp1 .bUpRight p,
+#wrap #content #miniContent #rightDiv #bUp #bUp2 .bUpRight p{
+	margin-top: 3px;
+}
+#wrap #content #miniContent #divWrap #rightDiv #bDown #bDownLeft{
+    width: 130px;
+    float: left;
+    font-weight: bold;
+}
+#wrap #content #miniContent #btnDiv{
+	width: 900px;
+	margin:40px auto; 
+	text-align: center;
+}
+#wrap #content #miniContent #btnDiv input[type=button]{
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    background-color: #a8fff1;
+    color: #424242;
+    border-radius: 2px;
+    box-shadow: 0 3px 3px #b7b7b7;
+}
+#wrap #content #miniContent #btnDiv input[type=button]:hover{
+	background-color: #ff548a;
+	color:white;
+	cursor: pointer;
+}
+
+
+

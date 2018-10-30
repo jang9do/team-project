@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ActiResult">
+	<resultMap type="ActiResult" id="ActiResultR">
+		<result property="arNum" column="arNum"/>
+		<result property="pNum" column="pNum"/>
+		<result property="pName" column="pName"/>
+		<result property="cNum" column="cNum"/>
+		<result property="cName" column="cName"/>
+		<result property="arTitle" column="arTitle"/>
+		<result property="arDate" column="arDate"/>
+		<result property="arCon" column="arCon"/>
+		<result property="arResult" column="arResult"/>
+		<result property="aNum" column="aNum"/>
+	</resultMap>
+	<insert id="ActiResultInsert" parameterType="ActiResult">
+		INSERT INTO ACTIRESULT VALUES(ACTIRESULT_SEQ.NEXTVAL, #{pNum}, #{cNum}, #{arTitle}, SYSDATE, #{arCon}, 0, NULL)
+	</insert>
+</mapper>

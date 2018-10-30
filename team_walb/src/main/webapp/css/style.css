@@ -1,0 +1,20 @@
+@charset "UTF-8";
+body { 
+	background-color: #FFF0B5; 
+	font-size: 9pt;
+}
+table{ border: pink solid 2px; margin: 10px auto;}
+tr {background-color: #FFE271; }
+tr:HOVER {
+	background-color: orange;
+	cursor: pointer;
+}
+td, th { text-align: center; padding: 5px;}
+caption { font-size: 25px; }
+h2 {text-align: center; width: 300px; color:red; margin: 0 auto;}
+a {text-decoration: none;}
+
+table{width: 100%;}
+.left {text-align: left;} /* 글 제목 왼쪽 정렬 */
+div.paging {text-align: center;} /* 페이지 숫자는 가운데 정렬 */
+b{color:red;}

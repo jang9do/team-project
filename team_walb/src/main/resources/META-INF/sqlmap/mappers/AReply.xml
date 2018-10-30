@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AReply">
+	<resultMap type="AReply" id="AReplyResult">
+		<result property="reNum" column="reNum"/>
+		<result property="mId" column="mId"/>
+		<result property="aNum" column="aNum"/>
+		<result property="reContent" column="reContent"/>
+		<result property="reDate" column="reDate"/>
+		<result property="reScore" column="reScore"/>
+	</resultMap>
+	<insert id="AReplyInsert" parameterType="AReply">
+		INSERT INTO AREPLY VALUES(AREPLY_SEQ.NEXTVAL, #{mId}, #{aNum}, #{reContent}, SYSDATE, #{reScore})
+	</insert>
+	<select id="AReplyList" parameterType="int" resultMap="AReplyResult">
+		SELECT * FROM AREPLY WHERE ANUM=#{aNum}
+	</select>
+	<select id="AReplyAvg" parameterType="int" resultType="double">
+		SELECT ROUND(AVG(RESCORE), 1) FROM AREPLY WHERE ANUM=#{aNum}
+	</select>
+</mapper>

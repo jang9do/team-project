@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+#wrap #content #writeForm{
+	width: 1000px;
+	margin:0 auto;
+	overflow: hidden;
+}
+
+#wrap #content #writeForm h1{
+    font-size: 18pt;
+    font-weight: bold;
+    color: #696969;
+    height: 25px;
+}
+#lineImg{
+	width: 75px;
+	height:2px;
+}
+#wrap #content #writeForm #bFormParam{
+	overflow: hidden;
+	
+}
+#wrap #content #writeForm #bFormParam #paramTitle{
+	border: 1px solid #606060;
+	width: 1000px;
+	height:45px;
+	line-height: 45px;
+}
+#wrap #content #writeForm #bFormParam #paramTitle h3{
+	margin-left: 20px;
+	float: left;
+}
+#wrap #content #writeForm #bFormParam #paramTitle input[type=text]{
+    width: 800px;
+    height: 35px;
+    margin-left: 20px;
+}
+#wrap #content #writeForm #bFormParam #paramWrap {
+	overflow: hidden; width: 1000px;
+	/* float: left; */
+	margin-top: 3px;
+}
+#wrap #content #writeForm #bFormParam #paramWrap #paramBend,
+#wrap #content #writeForm #bFormParam #paramWrap #paramBpeople,
+#wrap #content #writeForm #bFormParam #paramWrap #paramCircle{
+	width: 330px;
+	margin-right:5px;
+	float: left;
+	border: 1px solid #606060;
+	height:45px;
+	line-height: 45px;
+}
+#wrap #content #writeForm #bFormParam #paramWrap #paramCircle{
+	float:right;
+	margin-right:0;
+}
+#wrap #content #writeForm #bFormParam #paramWrap #paramBend .title3,
+#wrap #content #writeForm #bFormParam #paramWrap #paramBpeople .title3,
+#wrap #content #writeForm #bFormParam #paramWrap #paramCircle .title3{
+	margin-left: 20px;
+	float:left;
+}
+#wrap #content #writeForm #bFormParam #paramWrap #paramBend input{
+    width: 195px; height: 35px;
+    margin-left: 20px;
+}
+#wrap #content #writeForm #bFormParam #paramWrap #paramBpeople input{
+    width: 160px; height: 35px;
+    margin-left: 20px;
+}
+#wrap #content #writeForm #bFormParam #paramWrap #paramCircle select{
+    width: 180px; height: 35px;
+    margin-left: 20px;
+}
+#wrap #content #writeForm #bFormParam #subTitle{
+	border: 1px solid #606060;
+	width: 1000px; height:45px;
+	line-height: 45px;
+	background-color: #efefef;
+	margin-top: 3px;
+}
+#wrap #content #writeForm #bFormParam #subTitle h3{
+	    margin-left: 20px;
+}
+#wrap #content #writeForm #bFormParam #bFormContent{
+	border: 1px solid #606060;
+	margin-top: 3px;
+}
+#textareaDiv{
+	/* border: 1px solid #606060; */
+	
+}
+#bFormBtns{
+	width: 1000px;
+	/* height: 70px; */
+	text-align: center;
+
+}
+#bFormBtns input[type=submit],
+#bFormBtns input[type=button]{
+    margin: 30px 3px 50px;
+    padding: 0 20px;
+    height: 30px;
+    font-weight: bold;
+    background-color: #a8fff1;
+    color: #424242;
+    border-radius: 2px;
+    box-shadow: 0 3px 3px #b7b7b7;
+}
+#bFormBtns input[type=submit]:hover,
+#bFormBtns input[type=button]:hover{
+	background-color: #ff548a;
+	color:white;
+	cursor: pointer;
+}
